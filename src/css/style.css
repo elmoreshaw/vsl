@@ -16,6 +16,15 @@ Master Stylesheet
 	padding-right: 10%;
 }
 
+.about-h2 {
+	font-size: 66px;
+	font-weight: bold;
+}
+
+.about-p {
+	font-size: x-large;
+}
+
 .background-video {
 	width: 1300px;
 	height: auto;
@@ -179,7 +188,7 @@ section {
 
 .inner-text {
 	/* Other styling stuff */
-	margin-top: 45%;
+	margin-top: 40%;
 	width: 90%;
     height: 60%;
 	text-align: left;
@@ -392,6 +401,15 @@ section {
     right: 0px;
     top: -215px;
     z-index: 1;
+}
+
+.intro-image {
+	padding-top: 60%;
+	width: 85%;  
+	margin: auto; 
+	position: relative; 
+	z-index: 2;
+	left: 0;
 }
 
 .about-images {
@@ -1255,11 +1273,17 @@ p.subtitle {
 
 
 /* ===== Begin buttons ===== */
-
-#text-carousel-intro-section > div.container > div > div.col-md-7 > div > a.btn.btn-blank, a.btn.btn-blue {
+#text-carousel-intro-section > div > div > div.col-md-7 > div > a.btn.btn-blank {
 	font-size: 20px;
 	margin-left: 0px;
+	width: auto;
 }
+#text-carousel-intro-section > div > div > div.col-md-7 > div > a.btn.btn-blue {
+	font-size: 20px;
+	margin-left: 0px;
+	width: auto;
+}
+
 
 .btn-special, .btn-special:focus, .btn-special.focus, .btn-special:active, .btn-special.active {
 	-webkit-transition: all 0.6s ease-in-out;
@@ -1312,7 +1336,6 @@ p.subtitle {
 	border: 2px solid #57FFDC;
 	width: 150px;
 	color: #57FFDC;
-	margin-inline: 15px;
 	padding: 8px 12px;
 	display: inline-block;
 	vertical-align: middle;
@@ -1329,6 +1352,7 @@ p.subtitle {
 	transition-duration: 0.3s;
 	margin-bottom: 30px;
 	margin-top: 30px;
+	font-size: 20px;
 }
 
 .gradient {

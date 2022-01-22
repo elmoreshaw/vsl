@@ -138,14 +138,54 @@
 	#about-section > div.container > div:nth-child(4) > div:nth-child(4) > div:nth-child(2) {
 		display: none;
 	}
+	#text-carousel-intro-section > div > div > div.col-md-7 > div.rotate-box-info {
+		display: none;
+	}
 
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-	.rotate-box-info {
-		text-align: center;
+	.intro-image {
+		margin-top: 15px;
+		padding: revert;
+		width: 100%;  
+		position: relative; 
+		z-index: 2;
+		margin-top: 15px;
 	}
+
+	.about-images {
+		margin-top: 0px;
+		margin-bottom: 70px;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	h2 {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+
+	.about-h2 {
+		font-size: 36px;
+	}
+
+	.about-p {
+		font-size: 20px;
+	}
+
+	.rotate-box-info {
+		height: 350px;
+		text-align: left;
+	}
+
+	#text-carousel-intro-section > div > div > div.col-md-7 > div.rotate-box-info {
+		margin-top: 50px;
+	}
+
 
 	/* the images that hide for mobile resizing */
 	#about-section > div.container > div:nth-child(6) > div:nth-child(2) > div {
@@ -156,13 +196,14 @@
 		display: none;
 	}
 
-	#text-carousel-intro-section > div.container > div > div.col-md-7 > div > a.btn.btn-blank, a.btn.btn-blue {
-		margin-left: auto;
-		margin-right: auto;
+	#text-carousel-intro-section > div > div > div.col-md-5 > div {
+		display: none;
 	}
+
+
     .inner-text {
 		/* Other styling stuff */
-		margin-top: 35%;
+		margin-top: 4%;
 		width: 100%;
 		height: 60%;
 		/* text-align: center; */
@@ -266,7 +307,7 @@
 		margin-top: 35%;
 		width: 100%;
 		height: 60%;
-		text-align: center;
+		text-align: left;
 		font-size:xx-large;
 	}
 
@@ -352,7 +393,7 @@
 	/* Rotate Box */
 	.rotate-box-1 .rotate-box-info {
 		padding-left: 0; 
-	  	text-align: center;
+	  	text-align: left;
 	}
 	.rotate-box-1 .rotate-box-icon {
 		float: none ;
