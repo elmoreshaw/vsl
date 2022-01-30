@@ -73,6 +73,7 @@ const AboutSectionHeader = styled.h1`
 	font-size: 36px;
 	@media ${bp.sm} {
 		text-align: left;
+		font-size: 60px;
 	}
 `;
 
@@ -101,7 +102,7 @@ const AboutImg = styled.img`
 `;
 
 const AboutPara = styled.p`
-	color: ${theme.color.text.primary};
+	color: ${theme.color.text.secondary};
 	max-width: 700px;
 	text-align: flex-start;
 	font-size: 18px;
@@ -152,7 +153,7 @@ const HeroSectionHeader = styled.h1`
 	font-size: 46px;
 	@media ${bp.sm} {
 		text-align: left;
-		font-size: 56px;
+		font-size: 80px;
 	}
 `;
 
@@ -160,7 +161,7 @@ const HeroImg = styled.img`
 	max-width: 70%;
 	margin-bottom: 24px;
 	@media ${bp.sm} {
-		max-width: 90%;
+		max-width: 100%;
 	}
 `;
 
@@ -180,9 +181,9 @@ const HeroWrapper = styled.div`
 	background-color: transparent;
 	max-width: 900px;
 	@media ${bp.sm} {
-		padding-top: 50px;
-		padding-bottom: 100px;
-		width: 100%;
+		padding-top: 20vh;
+		padding-bottom: 20vh;
+		max-width: 100vw;
 		display: flex;
 		flex-direction: row-reverse;
 		justify-content: space-between;
@@ -331,7 +332,7 @@ const HomePage = () => {
 									<AboutImg src={graph} alt="graphs" />
 								</AboutImageParent>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Do better than the market.</AboutSectionHeader>
+									<AboutSectionHeader>Do Better Than The Market.</AboutSectionHeader>
 									<AboutPara>
 										Our protocol exposes you to a variety of top-tier tokens that are set to do
 										better than most.
@@ -358,7 +359,7 @@ const HomePage = () => {
 									<AboutImg src={lock} alt="lock" />
 								</AboutImageParent>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Maximal safety, Minimal risk.</AboutSectionHeader>
+									<AboutSectionHeader>Maximal Safety, Minimal Risk.</AboutSectionHeader>
 									<AboutPara>
 										Built-in diversification, decentralized governance, and deflationary mechanisms
 										keep your asset's value protected and secure.

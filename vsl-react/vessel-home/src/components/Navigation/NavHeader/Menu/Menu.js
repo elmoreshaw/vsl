@@ -24,8 +24,7 @@ const Menu = () => {
 			<NavItem link="/About">About</NavItem>
 			<NavItem link="/Roadmap">Roadmap</NavItem>
 			<NavItem link="/Tokenomics">Tokenomics</NavItem>
-			<NavItem link="/Whitepaper">Whitepaper</NavItem>
-			<NavItem link="/Team">Team</NavItem>
+			<NavItem link="/Documentation">Documentation</NavItem>
 			<PrimaryButton>Connect Wallet</PrimaryButton>
 		</MenuNav>
 	);

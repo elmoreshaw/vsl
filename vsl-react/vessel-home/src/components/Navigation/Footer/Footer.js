@@ -18,7 +18,9 @@ const StyledFooter = styled.footer`
 	align-content: center;
 	justify-content: center;
 	z-index: 9999;
-	background-color: ${theme.color.background.primary};
+	background: rgba(17, 17, 17, 0.9);
+	backdrop-filter: blur(9px);
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
 `;
 
 const FooterWrapper = styled.div`
@@ -133,7 +135,7 @@ const Footer = () => {
 						<StyledLink to="/About">About</StyledLink>
 						<StyledLink to="/Roadmap">Roadmap</StyledLink>
 						<StyledLink to="/Tokenomics">Tokenomics</StyledLink>
-						<StyledLink to="/Whitepaper">Whitepaper</StyledLink>
+						<StyledLink to="/Documentation">Documentation</StyledLink>
 					</StyledList>
 				</FooterDiv>
 				<FooterDiv>

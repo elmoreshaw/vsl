@@ -9,10 +9,10 @@ import InformationButton from '../../Button/InformationButton/InformationButton'
 import InformationButtonAccent from '../../Button/InformationButtonAccent/InformationButtonAccent';
 import bp from '../../Theme/breakpoints';
 import Footer from '../../Navigation/Footer/Footer';
-import blueGlow from '../../../assets/images/blue_glo.svg';
-import greenGlow from '../../../assets/images/green_glo.svg';
-import pinkGlow from '../../../assets/images/pink_glo.svg';
-import darkBlueGlow from '../../../assets/images/darkblue_glo.svg';
+import blueGlow from '../../../assets/images/BLUE_round.svg';
+import greenGlow from '../../../assets/images/GREEN_round.svg';
+import pinkGlow from '../../../assets/images/PINK_round.svg';
+import darkBlueGlow from '../../../assets/images/PURPLE_round.svg';
 import SSTarrow from '../../../assets/images/uiButtons/double-arrow-up.svg';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
@@ -291,7 +291,7 @@ const TokenomicsPage = () => {
 					</AboutSection>
 				</AnimationOnScroll>
 
-				<BackgroundBlurRight src={greenGlow} alt="Green Glow" />
+				<BackgroundBlurRight src={pinkGlow} alt="Green Glow" />
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
 					<AboutSection>
 						<SectionWrapper>

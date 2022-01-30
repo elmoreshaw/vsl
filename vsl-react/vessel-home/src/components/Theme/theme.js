@@ -11,7 +11,7 @@ const theme = {
 		},
 		text: {
 			primary: '#ffffff',
-			secondary: '#858685',
+			secondary: '#aaaaaa',
 		},
 	},
 	padding: {},

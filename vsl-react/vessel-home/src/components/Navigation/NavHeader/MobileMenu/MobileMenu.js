@@ -3,6 +3,7 @@ import theme from '../../../Theme/theme';
 import styled from 'styled-components';
 import bp from '../../../Theme/breakpoints';
 import { SlideDown } from 'react-slidedown';
+import PrimaryButton from '../../../Button/Primary/PrimaryButton';
 import 'react-slidedown/lib/slidedown.css';
 
 const SSTimg = styled.img`
@@ -23,8 +24,6 @@ const StyledNav = styled.nav`
 	padding-top: 8%;
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
-	transition: all 5s ease;
-	transform: translateY(0%);
 `;
 
 const Divider = styled.hr`
@@ -69,6 +68,21 @@ const XBar2 = styled.span`
 	transform: rotate(-45deg);
 `;
 
+const ButtonContainer = styled.div`
+	margin: 10px 0;
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	color: ${theme.color.text.primary};
+	text-decoration: none;
+	text-align: center;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 2.5em;
+`;
+
 const MobileMenu = ({ toggleMobileMenu }) => {
 	return (
 		<StyledNav>
@@ -92,9 +106,13 @@ const MobileMenu = ({ toggleMobileMenu }) => {
 				Tokenomics
 			</NavItemMobile>
 			<Divider />
-			<NavItemMobile link="/Whitepaper" toggle={toggleMobileMenu} exact={true}>
-				Whitepaper
+			<NavItemMobile link="/Documentation" toggle={toggleMobileMenu} exact={true}>
+				Documentation
 			</NavItemMobile>
+			<Divider />
+			<ButtonContainer>
+				<PrimaryButton>Connect Wallet</PrimaryButton>
+			</ButtonContainer>
 		</StyledNav>
 	);
 };

@@ -11,7 +11,9 @@ import bp from '../../Theme/breakpoints';
 
 const NavHeaderDiv = styled.div`
 	height: ${theme.height.navBarMobile};
-	background: ${theme.color.background.primary};
+	background: rgba(17, 17, 17, 0.9);
+	backdrop-filter: blur(9px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	z-index: 100;
 	position: sticky;
 	top: 0;
