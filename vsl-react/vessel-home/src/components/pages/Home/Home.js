@@ -13,6 +13,7 @@ import blueGlow from '../../../assets/images/BLUE_round.svg';
 import greenGlow from '../../../assets/images/GREEN_round.svg';
 import pinkGlow from '../../../assets/images/PINK_round.svg';
 import darkBlueGlow from '../../../assets/images/PURPLE_round.svg';
+import WHB from '../../../assets/images/Web-Header-Background.svg';
 import SSTarrow from '../../../assets/images/uiButtons/double-arrow-up.svg';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
@@ -63,6 +64,23 @@ const SectionWrapper = styled.div`
 	align-items: center;
 	position: relative;
 	background-color: transparent;
+`;
+
+const HeroSectionWrapper = styled.div`
+	border-radius: 15px;
+	padding: 0px 5% 24px 5%;
+	margin-top: -20px;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	position: relative;
+	background-color: transparent;
+	@media ${bp.sm} {
+		padding: 0px 5% 24px 5%;
+	}
 `;
 
 const AboutSectionHeader = styled.h1`
@@ -147,21 +165,26 @@ const AboutTextWrapperContainer = styled.div`
 
 const HeroSectionHeader = styled.h1`
 	color: ${theme.color.text.primary};
-	margin-bottom: 16px;
+	margin-top: -10px;
+	margin-bottom: 0px;
 	text-align: flex-start;
 	max-width: 900px;
 	font-size: 46px;
 	@media ${bp.sm} {
+		margin-top: 0px;
+		margin-bottom: 16px;
 		text-align: left;
 		font-size: 80px;
 	}
 `;
 
 const HeroImg = styled.img`
+	margin-top: -60px;
 	max-width: 70%;
 	margin-bottom: 24px;
 	@media ${bp.sm} {
 		max-width: 100%;
+		margin-top: 0px;
 	}
 `;
 
@@ -181,8 +204,6 @@ const HeroWrapper = styled.div`
 	background-color: transparent;
 	max-width: 900px;
 	@media ${bp.sm} {
-		padding-top: 20vh;
-		padding-bottom: 20vh;
 		max-width: 100vw;
 		display: flex;
 		flex-direction: row-reverse;
@@ -251,6 +272,21 @@ const BackgroundBlurRight = styled.img`
 	}
 `;
 
+const BackgroundBlurCenter = styled.img`
+	position: absolute;
+	z-index: -1;
+	opacity: 50%;
+	right: 0;
+	min-width: 800px;
+	min-height: 600px;
+	margin-top: -100px;
+	object-fit: fill;
+	@media ${bp.sm} {
+		min-width: 100%;
+		margin-top: -100px;
+	}
+`;
+
 const HomePage = () => {
 	const history = useHistory();
 
@@ -273,16 +309,17 @@ const HomePage = () => {
 				}}
 				component={<SSTimg src={SSTarrow} alt="sst" />}
 			/>
+			<BackgroundBlurCenter src={WHB} alt="header wave" />
 			<PageWrapper>
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
 					<AboutSection>
-						<SectionWrapper>
+						<HeroSectionWrapper>
 							<HeroWrapper>
 								<AboutImageParent>
 									<HeroImg src={ETF_big} alt="etf-img" />
 								</AboutImageParent>
 								<HeroTextWrapper>
-									<HeroSectionHeader>Welcome Aboard.</HeroSectionHeader>
+									<HeroSectionHeader>Welcome Aboard</HeroSectionHeader>
 									<HeroPara>The first synthetic deflationary DeFi mutual fund.</HeroPara>
 									<ButtonContainer>
 										<InformationButton onClick={() => history.push('/About')}>
@@ -292,7 +329,7 @@ const HomePage = () => {
 									</ButtonContainer>
 								</HeroTextWrapper>
 							</HeroWrapper>
-						</SectionWrapper>
+						</HeroSectionWrapper>
 					</AboutSection>
 				</AnimationOnScroll>
 
