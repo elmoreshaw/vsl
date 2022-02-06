@@ -13,6 +13,19 @@ import blueGlow from '../../../assets/images/BLUE_round.svg';
 import greenGlow from '../../../assets/images/GREEN_round.svg';
 import pinkGlow from '../../../assets/images/PINK_round.svg';
 import darkBlueGlow from '../../../assets/images/PURPLE_round.svg';
+import convenienceIcon from '../../../assets/svgs/convenience.svg';
+import safetyIcon from '../../../assets/svgs/safety.svg';
+import trustIcon from '../../../assets/svgs/eye.svg';
+import diversificationIcon from '../../../assets/images/sphere.svg';
+import stakingIcon from '../../../assets/images/staking.svg';
+import controlIcon from '../../../assets/images/control.svg';
+import lockIcon from '../../../assets/images/lock.svg';
+import growthIcon from '../../../assets/images/growth.svg';
+import mathIcon from '../../../assets/images/sigma.svg';
+import etf2d from '../../../assets/images/etf2d.png';
+import multifaceted from '../../../assets/images/network.png';
+import community from '../../../assets/images/community.png';
+import blocks from '../../../assets/images/blocks.png';
 import boat from '../../../assets/svgs/boat.svg';
 import SSTarrow from '../../../assets/images/uiButtons/double-arrow-up.svg';
 import 'animate.css/animate.min.css';
@@ -79,7 +92,7 @@ const AboutSectionHeader = styled.h1`
 `;
 
 const AboutImageParent = styled.div`
-	width: 100%;
+	width: 80%;
 	align-items: center;
 	justify-content: center;
 	display: flex;
@@ -130,6 +143,7 @@ const AboutWrapperTextRight = styled.div`
 	position: relative;
 	@media ${bp.sm} {
 		width: 90%;
+		display: flex;
 		justify-content: space-between;
 	}
 `;
@@ -203,6 +217,12 @@ const BoxContentWrapper = styled.div`
 		grid-template-columns: repeat(2, 1fr);
 	}
 	@media ${bp.md} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media ${bp.lg} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media ${bp.xl} {
 		grid-template-columns: repeat(3, 1fr);
 	}
 `;
@@ -220,6 +240,9 @@ const BoxContent = styled.div`
 		min-width: 300px;
 	}
 	@media ${bp.lg} {
+		min-width: 320px;
+	}
+	@media ${bp.xl} {
 		min-width: 400px;
 	}
 `;
@@ -229,28 +252,32 @@ const BoxHeader = styled.h1`
 	margin-bottom: 16px;
 	text-align: flex-start;
 	font-size: 24px;
+	display: flex;
+	justify-content: space-between;
 	padding-bottom: 4px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+`;
+
+const BoxIcon = styled.img`
+	width: 20px;
+	filter: invert(1);
+`;
+
+const BoxIconSpecial = styled.img`
+	width: 60px;
+	filter: invert(1);
+	display: flex;
+	margin-bottom: 10px;
 `;
 
 const ContentTextWrapperContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	max-width: 500px;
 	justify-content: center;
 	@media ${bp.sm} {
 		align-items: flex-start;
-	}
-`;
-
-const AboutSectionSpecialHeader = styled.h1`
-	max-width: 700px;
-	color: rgba(255, 255, 255, 0.4);
-	margin-bottom: 16px;
-	text-align: right;
-	font-size: 20px;
-	@media ${bp.sm} {
-		text-align: right;
 	}
 `;
 
@@ -283,9 +310,7 @@ const AboutPage = () => {
 					<AboutSection>
 						<SectionWrapper>
 							<AboutWrapperTextLeft>
-								<AboutImageParent>
-									<AboutImg src={boat} alt="boat" />
-								</AboutImageParent>
+								<AboutImageParent></AboutImageParent>
 								<AboutTextWrapperContainer>
 									<AboutSectionHeader>What Is Vessel Finance?</AboutSectionHeader>
 									<AboutPara>
@@ -305,19 +330,22 @@ const AboutPage = () => {
 						<SectionWrapper>
 							<AboutWrapperTextRight>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Our Mission:</AboutSectionHeader>
+									<AboutSectionHeader>Our Mission</AboutSectionHeader>
 									<BoxContentWrapper>
 										<BoxContent>
+											<BoxIconSpecial src={convenienceIcon} />
 											<BoxHeader>Convenience</BoxHeader>
 											To simplify the entry point for cryptocurrency investment and to increase
 											the accessibility to the rewards of passive, diversified investing.
 										</BoxContent>
 										<BoxContent>
+											<BoxIconSpecial src={trustIcon} />
 											<BoxHeader>Trust</BoxHeader>
 											To guarantee transparency and offer a sense of community in the way Vessel
 											Protocol operates.
 										</BoxContent>
 										<BoxContent>
+											<BoxIconSpecial src={safetyIcon} />
 											<BoxHeader>Safety</BoxHeader>
 											To minimize risk and maximize return for our investors with built-in asset
 											diversification, decentralized governance and deflationary mechanisms with
@@ -334,8 +362,10 @@ const AboutPage = () => {
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
 					<AboutSection>
 						<SectionWrapper>
-							<AboutWrapperTextRight>
-								<AboutSectionSpecialHeader>DIVERSIFIED ASSETS.</AboutSectionSpecialHeader>
+							<AboutWrapperTextLeft>
+								<AboutImageParent>
+									<AboutImg src={etf2d} alt="etf2d" />
+								</AboutImageParent>
 								<ContentTextWrapperContainer>
 									<AboutSectionHeader>A Synthetic Mutual Fund</AboutSectionHeader>
 									<AboutPara>
@@ -348,7 +378,7 @@ const AboutPage = () => {
 										Protocol to change the way you invest in the cryptocurrency world.
 									</AboutPara>
 								</ContentTextWrapperContainer>
-							</AboutWrapperTextRight>
+							</AboutWrapperTextLeft>
 						</SectionWrapper>
 					</AboutSection>
 				</AnimationOnScroll>
@@ -358,7 +388,9 @@ const AboutPage = () => {
 					<AboutSection>
 						<SectionWrapper>
 							<AboutWrapperTextRight>
-								<AboutSectionSpecialHeader>MORE POWER TOGETHER.</AboutSectionSpecialHeader>
+								<AboutImageParent>
+									<AboutImg src={community} alt="community" />
+								</AboutImageParent>
 								<ContentTextWrapperContainer>
 									<AboutSectionHeader>A Community Based Token</AboutSectionHeader>
 									<AboutPara>
@@ -368,6 +400,108 @@ const AboutPage = () => {
 										the power to influence the price action of the token and it's returns to a
 										higher degree.
 									</AboutPara>
+								</ContentTextWrapperContainer>
+							</AboutWrapperTextRight>
+						</SectionWrapper>
+					</AboutSection>
+				</AnimationOnScroll>
+
+				<BackgroundBlurRight src={greenGlow} alt="Green Glow" />
+				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
+					<AboutSection>
+						<SectionWrapper>
+							<AboutWrapperTextLeft>
+								<AboutImageParent>
+									<AboutImg src={multifaceted} alt="multifaceted" />
+								</AboutImageParent>
+								<ContentTextWrapperContainer>
+									<AboutSectionHeader>A Multi-Faceted Returns Suite</AboutSectionHeader>
+									<AboutPara>
+										Returns are provided to Vessel investors in many ways, including automated
+										staking rewards, bounty rewards for Epoch initiation, deflationary rewards by
+										way of transation tax, and more mechanisms coming soon.
+									</AboutPara>
+								</ContentTextWrapperContainer>
+							</AboutWrapperTextLeft>
+						</SectionWrapper>
+					</AboutSection>
+				</AnimationOnScroll>
+
+				<BackgroundBlurLeft src={greenGlow} alt="Green Glow" />
+				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
+					<AboutSection>
+						<SectionWrapper>
+							<AboutWrapperTextRight>
+								<AboutImageParent>
+									<AboutImg src={blocks} alt="blocks" />
+								</AboutImageParent>
+								<ContentTextWrapperContainer>
+									<AboutSectionHeader>A Reserve Based Environment</AboutSectionHeader>
+									<AboutPara>
+										The Vessel Protocol runs of a strict, mathematically-ensured algorithm that
+										adjusts the pricing of the $VSL token to match the reserve assets. by adjusting
+										the size of the circulating supply, Supply Vault and Burn Vault. All this allows
+										for the most accurate net asset value price emulations in DeFi yet.
+									</AboutPara>
+								</ContentTextWrapperContainer>
+							</AboutWrapperTextRight>
+						</SectionWrapper>
+					</AboutSection>
+				</AnimationOnScroll>
+
+				<BackgroundBlurRight src={greenGlow} alt="Green Glow" />
+				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
+					<AboutSection>
+						<SectionWrapper>
+							<AboutWrapperTextRight>
+								<ContentTextWrapperContainer>
+									<AboutSectionHeader>Why Vessel?</AboutSectionHeader>
+									<BoxContentWrapper>
+										<BoxContent>
+											<BoxIconSpecial src={diversificationIcon} />
+											<BoxHeader>Diversification</BoxHeader>
+											Vessel's ability to combine a diversified portfolio into a single token
+											allows access to a wider variety of investments, reducing the risk of market
+											volatility affecting your returns.
+										</BoxContent>
+										<BoxContent>
+											<BoxIconSpecial src={mathIcon} />
+											<BoxHeader>Mathematically Backed</BoxHeader>
+											Vessel protocol's entire logic is mathematically backed and proven. Every
+											algorithm within the contract has been rigorously tested to comply with the
+											protocol's intent.
+										</BoxContent>
+										<BoxContent>
+											<BoxIconSpecial src={stakingIcon} />
+											<BoxHeader>Automated Staking</BoxHeader>
+											Vessel's automatic staking mechanism allows investors to passively earn more
+											$VSL the longer they hold it. This type of staking strips away the need for
+											investors to do anything other than hold, as rewards are automatically
+											transferred to their wallets.
+										</BoxContent>
+										<BoxContent>
+											<BoxIconSpecial src={controlIcon} />
+											<BoxHeader>Guaranteed Control of Fund Evolution</BoxHeader>
+											Vessel Protocol allows every single investor to vote on the reserve assets
+											the the $VSL token are based on. This give all investors equal opportunity
+											to make their own contributions on how the fund evolves.
+										</BoxContent>
+										<BoxContent>
+											<BoxIconSpecial src={lockIcon} />
+											<BoxHeader>Access to No One</BoxHeader>
+											The Vessel Team has incredibly strict and minimal access to the controls of
+											the Vessel Protocol, meaning that your funds will not be touched or meddled
+											with by anyone, INCLUDING us.
+										</BoxContent>
+										<BoxContent>
+											<BoxIconSpecial src={growthIcon} />
+											<BoxHeader>An Evolving Suite of Products</BoxHeader>
+											Vessel intends on launching their V2 and V3 versions of the Vessel protocol
+											within the next two years, implementing mechanisms such as multiple asset
+											class investing and seigniorage, providing a plethora of investment
+											opportunities to all investors.
+										</BoxContent>
+									</BoxContentWrapper>
 								</ContentTextWrapperContainer>
 							</AboutWrapperTextRight>
 						</SectionWrapper>

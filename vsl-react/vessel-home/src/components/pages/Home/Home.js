@@ -7,6 +7,7 @@ import lock from '../../../assets/images/lock_cube.png';
 import scales from '../../../assets/images/scales_zoomed_cropped_4.png';
 import InformationButton from '../../Button/InformationButton/InformationButton';
 import InformationButtonAccent from '../../Button/InformationButtonAccent/InformationButtonAccent';
+import PrimaryButton from '../../Button/Primary/PrimaryButton';
 import bp from '../../Theme/breakpoints';
 import Footer from '../../Navigation/Footer/Footer';
 import blueGlow from '../../../assets/images/BLUE_round.svg';
@@ -69,7 +70,7 @@ const SectionWrapper = styled.div`
 const HeroSectionWrapper = styled.div`
 	border-radius: 15px;
 	padding: 0px 5% 24px 5%;
-	margin-top: -20px;
+	margin-top: 0px;
 	width: 100%;
 	height: 100vh;
 	display: flex;
@@ -165,7 +166,7 @@ const AboutTextWrapperContainer = styled.div`
 
 const HeroSectionHeader = styled.h1`
 	color: ${theme.color.text.primary};
-	margin-top: -10px;
+	margin-top: 0px;
 	margin-bottom: 0px;
 	text-align: flex-start;
 	max-width: 900px;
@@ -179,7 +180,7 @@ const HeroSectionHeader = styled.h1`
 `;
 
 const HeroImg = styled.img`
-	margin-top: -60px;
+	margin-top: 0px;
 	max-width: 70%;
 	margin-bottom: 24px;
 	@media ${bp.sm} {
@@ -275,7 +276,7 @@ const BackgroundBlurRight = styled.img`
 const BackgroundBlurCenter = styled.img`
 	position: absolute;
 	z-index: -1;
-	opacity: 50%;
+	opacity: 70%;
 	right: 0;
 	min-width: 800px;
 	min-height: 600px;
@@ -319,13 +320,14 @@ const HomePage = () => {
 									<HeroImg src={ETF_big} alt="etf-img" />
 								</AboutImageParent>
 								<HeroTextWrapper>
-									<HeroSectionHeader>Welcome Aboard</HeroSectionHeader>
-									<HeroPara>The first synthetic deflationary DeFi mutual fund.</HeroPara>
+									<AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+										<HeroSectionHeader>Welcome Aboard</HeroSectionHeader>
+									</AnimationOnScroll>
+									<AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true" delay="500">
+										<HeroPara>The first synthetic deflationary DeFi mutual fund.</HeroPara>
+									</AnimationOnScroll>
 									<ButtonContainer>
-										<InformationButton onClick={() => history.push('/About')}>
-											About
-										</InformationButton>
-										<InformationButtonAccent>Connect Wallet</InformationButtonAccent>
+										<PrimaryButton>Connect Wallet</PrimaryButton>
 									</ButtonContainer>
 								</HeroTextWrapper>
 							</HeroWrapper>

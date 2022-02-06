@@ -17,6 +17,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 		}),
+		@babel/preset-react
 	],
 	devServer: {
 		historyApiFallback: true,

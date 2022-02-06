@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../Theme/theme';
 import ETF_big from '../../../assets/images/etf_big.png';
 import vault from '../../../assets/images/vault_render_big.png';
@@ -7,6 +7,7 @@ import lock from '../../../assets/images/lock_cube.png';
 import scales from '../../../assets/images/scales_zoomed_cropped_4.png';
 import InformationButton from '../../Button/InformationButton/InformationButton';
 import InformationButtonAccent from '../../Button/InformationButtonAccent/InformationButtonAccent';
+import TokenomicsChart from '../../Charts/TokenomicsChart';
 import bp from '../../Theme/breakpoints';
 import Footer from '../../Navigation/Footer/Footer';
 import blueGlow from '../../../assets/images/BLUE_round.svg';
@@ -55,7 +56,7 @@ const ButtonContainer = styled.div`
 
 const SectionWrapper = styled.div`
 	border-radius: 15px;
-	padding: 48px 24px;
+	padding: 48px 24px 0 24px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -73,6 +74,7 @@ const AboutSectionHeader = styled.h1`
 	font-size: 36px;
 	@media ${bp.sm} {
 		text-align: left;
+		font-size: 50px;
 	}
 `;
 
@@ -250,6 +252,195 @@ const BackgroundBlurRight = styled.img`
 	}
 `;
 
+const BoxContentWrapper = styled.div`
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 28px;
+	grid-row-gap: 28px;
+	margin: 20px;
+	@media ${bp.sm} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media ${bp.md} {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@media ${bp.lg} {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@media ${bp.xl} {
+		grid-template-columns: repeat(4, 1fr);
+	}
+`;
+
+const BoxContent = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 24px;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
+	border-radius: 16px;
+	text-align: center;
+	color: ${theme.color.text.primary};
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	@media ${bp.sm} {
+		min-width: 300px;
+	}
+	@media ${bp.md} {
+		min-width: 200px;
+	}
+	@media ${bp.lg} {
+		min-width: 300px;
+	}
+	@media ${bp.xl} {
+		min-width: 300px;
+	}
+`;
+
+const BoxHeaderKey = styled.h1`
+	color: ${theme.color.text.primary};
+	margin-bottom: 16px;
+	text-align: center;
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 4px;
+`;
+
+const BoxIcon = styled.img`
+	width: 20px;
+	filter: invert(1);
+`;
+
+const BoxIconSpecial = styled.img`
+	width: 60px;
+	filter: invert(1);
+	display: flex;
+	margin-bottom: 10px;
+`;
+
+const ChartWrapper = styled.div`
+	height: 250px;
+	width: 1000px;
+	@media ${bp.sm} {
+		height: 500px;
+		width: 700px;
+	}
+	@media ${bp.md} {
+		height: 600px;
+		width: 1000px;
+	}
+	@media ${bp.lg} {
+		height: 600px;
+		width: 1000px;
+	}
+	@media ${bp.xl} {
+		height: 600px;
+		width: 1000px;
+	}
+`;
+
+const TokenomicsTable = styled.div`
+	display: grid;
+	grid-template-columns: 2fr;
+	width: 80%;
+	justify-content: center;
+	align-content: center;
+	margin-top: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	@media ${bp.sm} {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 8fr;
+		width: 80%;
+		justify-content: center;
+		align-content: center;
+		margin-top: 50px;
+		padding-left: 30px;
+		padding-right: 30px;
+		background: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(10px);
+		border-radius: 16px;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+	}
+`;
+
+const ChartLegendGrid = styled.div`
+	display: contents;
+	grid-column-gap: 40px;
+	grid-row-gap: 80px;
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	border-radius: 16px;
+`;
+
+const TableContent = styled.div`
+	display: flex;
+	flex-direction: row;
+	padding: 24px 24px 10px 24px;
+	text-align: flex-start;
+	color: #ffffff;
+	@media ${bp.sm} {
+		padding: 24px;
+	}
+`;
+
+const TableContentTitle = styled.div`
+	display: flex;
+	flex-direction: row;
+	padding: 4px 24px 4px 24px;
+	text-align: flex-start;
+	color: #ffffff;
+	@media ${bp.sm} {
+		padding: 24px;
+	}
+`;
+
+const TableContentPercent = styled.div`
+	display: flex;
+	flex-direction: row;
+	padding: 4px 24px 4px 24px;
+	font-weight: 1000;
+	text-align: flex-start;
+	color: #ffffff;
+	@media ${bp.sm} {
+		padding: 24px;
+	}
+`;
+
+const TableContentDesc = styled.div`
+	display: flex;
+	flex-direction: row;
+	padding: 4px 24px 24px 24px;
+	text-align: flex-start;
+	color: #aaaaaa;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	@media ${bp.sm} {
+		border-bottom: 1px solid rgba(255, 255, 255, 0);
+		padding: 24px;
+	}
+`;
+
+const GraphTabCSS = css`
+	height: 15px;
+	width: 15px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: flex;
+	background-color: ${({ DotColor }) => DotColor || `red`};
+`;
+
+const GraphTab = styled.span`
+	${GraphTabCSS}
+`;
+
 const TokenomicsPage = () => {
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' });
@@ -280,13 +471,45 @@ const TokenomicsPage = () => {
 							<AboutWrapperTextLeft>
 								<AboutImageParent></AboutImageParent>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Vessel Finance</AboutSectionHeader>
+									<AboutSectionHeader>Tokenomics</AboutSectionHeader>
 									<AboutPara>
-										The Vessel Protocol aims to bring one of the most proven utilities on
-										traditional markets, mutual funds, onto the decentralized web.
+										The $VSL Token serves as Vessel's unit for investment. The distribution of these
+										units in both public and private ownership defines the structure of how Vessel
+										Protocol operates.
 									</AboutPara>
 								</AboutTextWrapperContainer>
 							</AboutWrapperTextLeft>
+						</SectionWrapper>
+					</AboutSection>
+				</AnimationOnScroll>
+
+				<BackgroundBlurLeft src={pinkGlow} alt="Pink Glow" />
+				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
+					<AboutSection>
+						<SectionWrapper>
+							<AboutWrapperTextRight>
+								<AboutTextWrapperContainer>
+									<AboutSectionHeader>Metrics</AboutSectionHeader>
+									<BoxContentWrapper>
+										<BoxContent>
+											<BoxHeaderKey>$1.23</BoxHeaderKey>
+											Current Price
+										</BoxContent>
+										<BoxContent>
+											<BoxHeaderKey>100k</BoxHeaderKey>
+											Holders
+										</BoxContent>
+										<BoxContent>
+											<BoxHeaderKey>3M</BoxHeaderKey>
+											Circulating Supply
+										</BoxContent>
+										<BoxContent>
+											<BoxHeaderKey>10B</BoxHeaderKey>
+											Total Supply
+										</BoxContent>
+									</BoxContentWrapper>
+								</AboutTextWrapperContainer>
+							</AboutWrapperTextRight>
 						</SectionWrapper>
 					</AboutSection>
 				</AnimationOnScroll>
@@ -295,16 +518,118 @@ const TokenomicsPage = () => {
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
 					<AboutSection>
 						<SectionWrapper>
-							<AboutWrapperTextLeft>
-								<AboutImageParent></AboutImageParent>
+							<AboutWrapperTextRight>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader></AboutSectionHeader>
-									<AboutPara></AboutPara>
+									<AboutSectionHeader>Distribution</AboutSectionHeader>
 								</AboutTextWrapperContainer>
-							</AboutWrapperTextLeft>
+							</AboutWrapperTextRight>
+							<ChartWrapper>
+								<TokenomicsChart />
+							</ChartWrapper>
 						</SectionWrapper>
 					</AboutSection>
+					<BackgroundBlurLeft src={pinkGlow} alt="Green Glow" />
 				</AnimationOnScroll>
+
+				<AboutSection>
+					<SectionWrapper>
+						<TokenomicsTable>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#BF4DD3"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Seed Sale</TableContentTitle>
+								<TableContentPercent>3.00%</TableContentPercent>
+								<TableContentDesc>
+									20% unlocked at TGE; 20% released every 3 months afterwards.
+								</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#CDB53A"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Private Sale</TableContentTitle>
+								<TableContentPercent>5.00%</TableContentPercent>
+								<TableContentDesc>
+									20% unlocked at TGE; 20% released every 3 months afterwards.
+								</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#D1A114"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Public Sale</TableContentTitle>
+								<TableContentPercent>7.00%</TableContentPercent>
+								<TableContentDesc>
+									25% unlocked at TGE; Linear vesting of 25% afterwards. All unsold seed/private
+									allocations added here.
+								</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#99B4E3"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Team and Advisors</TableContentTitle>
+								<TableContentPercent>6.60%</TableContentPercent>
+								<TableContentDesc>TBD.</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#D16764"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Marketing</TableContentTitle>
+								<TableContentPercent>1.60%</TableContentPercent>
+								<TableContentDesc>10% unlocked at TGE and 5% unlocked monthly.</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#68B4CD"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Development</TableContentTitle>
+								<TableContentPercent>3.30%</TableContentPercent>
+								<TableContentDesc>5% unlocked at TGE and 5% unlocked monthly.</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#4C83D4"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Bounty</TableContentTitle>
+								<TableContentPercent>2.50%</TableContentPercent>
+								<TableContentDesc>
+									0.01% released no less than every 7 days 1 month after TGE.
+								</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#B42EC5"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Liquid Reserves</TableContentTitle>
+								<TableContentPercent>5.00%</TableContentPercent>
+								<TableContentDesc>
+									10% unlocked at TGE and 5% unlocked every 3 months afterwards.
+								</TableContentDesc>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#63B3A2"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Protocol Vault</TableContentTitle>
+								<TableContentPercent>33.00%</TableContentPercent>
+								<TableContent>
+									All allocated tokens are locked to the Vessel vault upon TGE.
+								</TableContent>
+							</ChartLegendGrid>
+							<ChartLegendGrid>
+								<TableContent>
+									<GraphTab DotColor="#1093D0"></GraphTab>
+								</TableContent>
+								<TableContentTitle>Protocol Burn</TableContentTitle>
+								<TableContentPercent>33.00%</TableContentPercent>
+								<TableContent>All allocated tokens are burnt upon TGE.</TableContent>
+							</ChartLegendGrid>
+						</TokenomicsTable>
+					</SectionWrapper>
+				</AboutSection>
 			</PageWrapper>
 			<Footer />
 		</>

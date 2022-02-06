@@ -7,7 +7,7 @@ const StyledButton = styled.button`
 	border: solid;
 	background-color: ${theme.color.background.primary};
 	border-color: ${theme.color.text.primary};
-	border-radius: 5px;
+	border-radius: 12px;
 	padding: 10px 10px 10px 10px;
 	margin-left: 0px;
 	margin-right: 10px;
@@ -17,7 +17,7 @@ const StyledButton = styled.button`
 
 	&:hover {
 		cursor: pointer;
-		background-color: ${theme.color.background.primary};
+		background: rgba(255, 255, 255, 0.2);
 		z-index: 9999;
 	}
 `;

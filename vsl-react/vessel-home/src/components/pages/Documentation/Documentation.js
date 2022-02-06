@@ -13,6 +13,7 @@ import blueGlow from '../../../assets/images/BLUE_round.svg';
 import greenGlow from '../../../assets/images/GREEN_round.svg';
 import pinkGlow from '../../../assets/images/PINK_round.svg';
 import darkBlueGlow from '../../../assets/images/PURPLE_round.svg';
+import linkIcon from '../../../assets/svgs/link.svg';
 import SSTarrow from '../../../assets/images/uiButtons/double-arrow-up.svg';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
@@ -203,6 +204,12 @@ const BoxContentWrapper = styled.div`
 		grid-template-columns: repeat(2, 1fr);
 	}
 	@media ${bp.md} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media ${bp.lg} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media ${bp.xl} {
 		grid-template-columns: repeat(3, 1fr);
 	}
 `;
@@ -220,6 +227,9 @@ const BoxContent = styled.div`
 		min-width: 300px;
 	}
 	@media ${bp.lg} {
+		min-width: 320px;
+	}
+	@media ${bp.xl} {
 		min-width: 400px;
 	}
 `;
@@ -229,8 +239,15 @@ const BoxHeader = styled.h1`
 	margin-bottom: 16px;
 	text-align: flex-start;
 	font-size: 24px;
+	display: flex;
+	justify-content: space-between;
 	padding-bottom: 4px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+`;
+
+const BoxIcon = styled.img`
+	width: 20px;
+	filter: invert(1);
 `;
 
 const ContentTextWrapperContainer = styled.div`
@@ -302,18 +319,27 @@ const WhitepaperPage = () => {
 						<SectionWrapper>
 							<AboutWrapperTextRight>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Links:</AboutSectionHeader>
+									<AboutSectionHeader>Links</AboutSectionHeader>
 									<BoxContentWrapper>
 										<BoxContent>
-											<BoxHeader>Audit</BoxHeader>
+											<BoxHeader>
+												Audit
+												<BoxIcon src={linkIcon} />
+											</BoxHeader>
 											Access our audit certificate and documentation.
 										</BoxContent>
 										<BoxContent>
-											<BoxHeader>Github</BoxHeader>
+											<BoxHeader>
+												Github
+												<BoxIcon src={linkIcon} />
+											</BoxHeader>
 											View our contract code right from the source.
 										</BoxContent>
 										<BoxContent>
-											<BoxHeader>Discord</BoxHeader>
+											<BoxHeader>
+												Discord
+												<BoxIcon src={linkIcon} />
+											</BoxHeader>
 											Join the community to ask questions, read updates and more.
 										</BoxContent>
 									</BoxContentWrapper>
@@ -329,15 +355,22 @@ const WhitepaperPage = () => {
 						<SectionWrapper>
 							<AboutWrapperTextRight>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Papers:</AboutSectionHeader>
+									<AboutSectionHeader>Papers</AboutSectionHeader>
 									<BoxContentWrapper>
 										<BoxContent>
-											<BoxHeader>Whitepaper</BoxHeader>A general document of the Vessel Contract,
-											it's proposal and it's vision.
+											<BoxHeader>
+												Whitepaper
+												<BoxIcon src={linkIcon} />
+											</BoxHeader>
+											A general document of the Vessel Contract, it's proposal and it's vision.
 										</BoxContent>
 										<BoxContent>
-											<BoxHeader>Yellowpaper</BoxHeader>A technical document outlining the
-											mathematics and algorithms running the Vessel Contract.
+											<BoxHeader>
+												Yellowpaper
+												<BoxIcon src={linkIcon} />
+											</BoxHeader>
+											A technical document outlining the mathematics and algorithms running the
+											Vessel Contract.
 										</BoxContent>
 									</BoxContentWrapper>
 								</AboutTextWrapperContainer>

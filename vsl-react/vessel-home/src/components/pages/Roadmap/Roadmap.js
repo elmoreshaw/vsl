@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import '../../../index.css';
 import theme from '../../Theme/theme';
 import ETF_big from '../../../assets/images/etf_big.png';
 import vault from '../../../assets/images/vault_render_big.png';
@@ -38,9 +39,12 @@ const PageWrapper = styled.div`
 
 const AboutSection = styled.section`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
+	justify: center;
 	border-radius: 50px;
 	position: relative;
+	flex-direction: column;
 	background-color: transparent;
 `;
 
@@ -53,9 +57,9 @@ const ButtonContainer = styled.div`
 	position: relative;
 `;
 
-const SectionWrapper = styled.div`
+const HeroSectionWrapper = styled.div`
 	border-radius: 15px;
-	padding: 48px 24px;
+	padding: 48px 24px 0 24px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -63,6 +67,30 @@ const SectionWrapper = styled.div`
 	align-items: center;
 	position: relative;
 	background-color: transparent;
+`;
+
+const SectionWrapper = styled.div`
+	border-radius: 15px;
+	padding-top: 48px;
+	padding-left: 24px;
+	padding-right: 24px;
+	width: 80%;
+	display: flex;
+	/* fix for Firefox */
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	flex-direction: column;
+	background-color: transparent;
+	@media ${bp.xxs} {
+		flex-direction: column;
+	}
+	@media ${bp.xs} {
+		flex-direction: column;
+	}
+	@media ${bp.sm} {
+		flex-direction: row;
+	}
 `;
 
 const AboutSectionHeader = styled.h1`
@@ -73,6 +101,7 @@ const AboutSectionHeader = styled.h1`
 	font-size: 36px;
 	@media ${bp.sm} {
 		text-align: left;
+		font-size: 50px;
 	}
 `;
 
@@ -107,6 +136,82 @@ const AboutPara = styled.p`
 	font-size: 18px;
 	@media ${bp.sm} {
 		text-align: left;
+	}
+`;
+
+const RoadmapPara = styled.div`
+	color: #fff;
+	width: 100%;
+	font-family: Arial;
+	padding: 30px 30px 60px 30px;
+	border: 4px solid ${props => roadmapColorPicker(props)};
+	border-radius: 20px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: 30px;
+	margin-left: 30px;
+	-webkit-box-shadow: 0px 0px 16px 0px ${props => roadmapColorPicker(props)};
+	-moz-box-shadow: 0px 0px 16px 0px ${props => roadmapColorPicker(props)};
+	box-shadow: 0px 0px 16px 0px ${props => roadmapColorPicker(props)};
+	min-width: 300px;
+	height: 12%;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	@media ${bp.xs} {
+		height: 12%;
+	}
+	@media ${bp.sm} {
+		height: 550px;
+	}
+	@media ${bp.md} {
+		height: 560px;
+	}
+	@media ${bp.lg} {
+		height: 535px;
+	}
+	@media ${bp.xl} {
+		height: 475px;
+	}
+`;
+const RoadmapSubPara = styled.div`
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: 'expletus-sans-regular';
+	padding: 20px 20px 20px 20px;
+	border: 4px solid ${props => roadmapColorPicker(props)};
+	-webkit-box-shadow: 0px 0px 10px 0px ${props => roadmapColorPicker(props)};
+	-moz-box-shadow: 0px 0px 10px 0px ${props => roadmapColorPicker(props)};
+	box-shadow: 0px 0px 10px 0px ${props => roadmapColorPicker(props)};
+	border-radius: 20px;
+	background: ${props =>
+		props.milestone
+			? `linear-gradient(
+	250deg
+	,#376fbf 0%,#00bea8 100%);`
+			: ``};
+	width: 100%;
+	@media ${bp.sm} {
+		min-width: 232px;
+		text-align: center;
+	}
+`;
+
+const RoadmapTitle = styled.h1`
+	font-weight: bold;
+	color: ${props => roadmapColorPicker(props)};
+	font-size: 72px;
+	font-family: 'IBMPlexMono-Light';
+`;
+
+const RoadMapSubParaContainer = styled.div`
+	height: 75%;
+	flex-direction: column;
+	align-items: center;
+	@media ${bp.sm} {
+		text-align: center;
+		display: flex;
+		justify-content: center;
 	}
 `;
 
@@ -220,7 +325,6 @@ const BackgroundBlurLeft = styled.img`
 		max-width: 100%;
 		margin-top: -100px;
 	}
-
 	@media ${bp.xl} {
 		left: -1%;
 		max-width: 100%;
@@ -242,13 +346,16 @@ const BackgroundBlurRight = styled.img`
 		max-width: 100%;
 		margin-top: -100px;
 	}
-
 	@media ${bp.xl} {
 		right: 0;
 		max-width: 100%;
 		margin-top: -100px;
 	}
 `;
+
+const roadmapColorPicker = col => {
+	return col.one ? '#51ECCD' : col.two ? '#54FFFC' : col.three ? '#57F0FE' : col.four ? '#56CFFE' : 'red';
+};
 
 const RoadmapPage = () => {
 	useEffect(() => {
@@ -276,18 +383,18 @@ const RoadmapPage = () => {
 			<PageWrapper>
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
 					<AboutSection>
-						<SectionWrapper>
+						<HeroSectionWrapper>
 							<AboutWrapperTextLeft>
 								<AboutImageParent></AboutImageParent>
 								<AboutTextWrapperContainer>
-									<AboutSectionHeader>Vessel Finance</AboutSectionHeader>
+									<AboutSectionHeader>Roadmap</AboutSectionHeader>
 									<AboutPara>
 										The Vessel Protocol aims to bring one of the most proven utilities on
 										traditional markets, mutual funds, onto the decentralized web.
 									</AboutPara>
 								</AboutTextWrapperContainer>
 							</AboutWrapperTextLeft>
-						</SectionWrapper>
+						</HeroSectionWrapper>
 					</AboutSection>
 				</AnimationOnScroll>
 
@@ -295,13 +402,65 @@ const RoadmapPage = () => {
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
 					<AboutSection>
 						<SectionWrapper>
-							<AboutWrapperTextLeft>
-								<AboutImageParent></AboutImageParent>
-								<AboutTextWrapperContainer>
-									<AboutSectionHeader></AboutSectionHeader>
-									<AboutPara></AboutPara>
-								</AboutTextWrapperContainer>
-							</AboutWrapperTextLeft>
+							<RoadmapPara one>
+								<RoadmapTitle one>
+									Q1 <span style={{ color: '#fff' }}>2022:</span>
+								</RoadmapTitle>
+								<RoadMapSubParaContainer four>
+									<RoadmapSubPara one>
+										<span style={{ color: '#51ECCD' }}>vsl</span> whitepaper and smart contract
+									</RoadmapSubPara>
+									<RoadmapSubPara one>developer revisions and audits</RoadmapSubPara>
+									<RoadmapSubPara one>
+										<span style={{ color: '#51ECCD' }}>vsl</span>.finance + app.
+										<span style={{ color: '#01FFFE' }}>vsl.finance</span>
+									</RoadmapSubPara>
+								</RoadMapSubParaContainer>
+							</RoadmapPara>
+							<RoadmapPara two>
+								<RoadmapTitle two>
+									Q2 <span style={{ color: '#fff' }}>2022:</span>
+								</RoadmapTitle>
+								<RoadMapSubParaContainer four>
+									<RoadmapSubPara two>
+										ICO, seed funding, private sales -{' '}
+										<span style={{ color: '#51ECCD', fontFamily: 'IBMPlexMono-Light' }}>
+											$5,000,000
+										</span>{' '}
+										target
+									</RoadmapSubPara>
+									<RoadmapSubPara two>
+										third party audit of vsl smart contract and logic
+									</RoadmapSubPara>
+								</RoadMapSubParaContainer>
+							</RoadmapPara>
+						</SectionWrapper>
+						<BackgroundBlurLeft src={blueGlow} alt="Green Glow" />
+						<SectionWrapper>
+							<RoadmapPara three>
+								<RoadmapTitle three>
+									Q4 <span style={{ color: '#fff' }}>2022:</span>
+								</RoadmapTitle>
+								<RoadMapSubParaContainer four>
+									<RoadmapSubPara three>T1 exchange listings</RoadmapSubPara>
+									<RoadmapSubPara three milestone>
+										V2: seigniorage shares peg
+									</RoadmapSubPara>
+									<RoadmapSubPara three>V2: custom asset class staking</RoadmapSubPara>
+								</RoadMapSubParaContainer>
+							</RoadmapPara>
+							<RoadmapPara four>
+								<RoadmapTitle four>
+									Q1 <span style={{ color: '#fff' }}>2023:</span>
+								</RoadmapTitle>
+								<RoadMapSubParaContainer four>
+									<RoadmapSubPara four milestone>
+										V3: vsl.exchange launch
+									</RoadmapSubPara>
+									<RoadmapSubPara four>V3: governance of exchange policies</RoadmapSubPara>
+								</RoadMapSubParaContainer>
+							</RoadmapPara>
+							<BackgroundBlurRight src={blueGlow} alt="Green Glow" />
 						</SectionWrapper>
 					</AboutSection>
 				</AnimationOnScroll>

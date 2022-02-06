@@ -1,4 +1,5 @@
 const breakpoints = {
+	xxs: `(max-width: 424px;)`,
 	xs: `(min-width: 425px)`,
 	sm: `(min-width: 768px)`,
 	md: `(min-width: 1024px)`,

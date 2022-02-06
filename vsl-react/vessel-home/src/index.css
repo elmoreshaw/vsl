@@ -19,6 +19,13 @@
                             'embedded-opentype', and 'svg' */
 }
 
+@font-face {
+	font-family: 'IBMPlexMono-Light';
+	src: local('IBM_Plex_Mono'), url(./fonts/IBM_Plex_Mono/IBMPlexMono-Light.ttf) format('truetype');
+	/* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 * {
 	margin: 0;
 	box-sizing: border-box;
