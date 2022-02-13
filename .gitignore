@@ -13,6 +13,7 @@ build/Release
 node_modules/
 jspm_packages/
 package-lock.json
+yarn.lock
 
 # Distribution directories
 dist/
