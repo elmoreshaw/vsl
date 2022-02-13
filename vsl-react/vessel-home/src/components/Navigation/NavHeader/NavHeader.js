@@ -5,7 +5,7 @@ import Menu from './Menu/Menu';
 import MobileMenu from './MobileMenu/MobileMenu';
 import Hamburger from './MobileMenu/Hamburger';
 import Backdrop from './Backdrop/Backdrop';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import theme from '../../Theme/theme';
 import bp from '../../Theme/breakpoints';
 import * as React from 'react';

@@ -1,6 +1,5 @@
 import NavHeader from '../NavHeader/NavHeader';
 import styled from 'styled-components';
-import theme from '../../Theme/theme';
 
 const StyledLayout = styled.div`
 	width: 100%;

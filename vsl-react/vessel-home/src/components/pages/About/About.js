@@ -1,18 +1,8 @@
 import styled from 'styled-components';
 import theme from '../../Theme/theme';
-import ETF_big from '../../../assets/images/etf_big.png';
-import vault from '../../../assets/images/vault_render_big.png';
-import graph from '../../../assets/images/vsl_graph_both.png';
-import lock from '../../../assets/images/lock_cube.png';
-import scales from '../../../assets/images/scales_zoomed_cropped_4.png';
-import InformationButton from '../../Button/InformationButton/InformationButton';
-import InformationButtonAccent from '../../Button/InformationButtonAccent/InformationButtonAccent';
 import bp from '../../Theme/breakpoints';
 import Footer from '../../Navigation/Footer/Footer';
-import blueGlow from '../../../assets/images/BLUE_round.svg';
 import greenGlow from '../../../assets/images/GREEN_round.svg';
-import pinkGlow from '../../../assets/images/PINK_round.svg';
-import darkBlueGlow from '../../../assets/images/PURPLE_round.svg';
 import convenienceIcon from '../../../assets/svgs/convenience.svg';
 import safetyIcon from '../../../assets/svgs/safety.svg';
 import trustIcon from '../../../assets/svgs/eye.svg';
@@ -26,7 +16,6 @@ import etf2d from '../../../assets/images/etf2d.png';
 import multifaceted from '../../../assets/images/network.png';
 import community from '../../../assets/images/community.png';
 import blocks from '../../../assets/images/blocks.png';
-import boat from '../../../assets/svgs/boat.svg';
 import SSTarrow from '../../../assets/images/uiButtons/double-arrow-up.svg';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
@@ -56,15 +45,6 @@ const AboutSection = styled.section`
 	border-radius: 50px;
 	position: relative;
 	background-color: transparent;
-`;
-
-const ButtonContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-	padding-top: 20px;
-	position: relative;
 `;
 
 const SectionWrapper = styled.div`
@@ -256,11 +236,6 @@ const BoxHeader = styled.h1`
 	justify-content: space-between;
 	padding-bottom: 4px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-`;
-
-const BoxIcon = styled.img`
-	width: 20px;
-	filter: invert(1);
 `;
 
 const BoxIconSpecial = styled.img`

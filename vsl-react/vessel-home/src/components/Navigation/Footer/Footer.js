@@ -5,7 +5,6 @@ import bp from '../../Theme/breakpoints';
 import twitter_img from '../../../assets/images/twitter.svg';
 import github_img from '../../../assets/images/github.svg';
 import discord_img from '../../../assets/images/discord.svg';
-import { SmartphoneOutlined } from '@material-ui/icons';
 
 const StyledFooter = styled.footer`
 	display: flex;

@@ -5,7 +5,6 @@ import vault from '../../../assets/images/vault_render_big.png';
 import graph from '../../../assets/images/vsl_graph_both.png';
 import lock from '../../../assets/images/lock_cube.png';
 import scales from '../../../assets/images/scales_zoomed_cropped_4.png';
-import InformationButton from '../../Button/InformationButton/InformationButton';
 import InformationButtonAccent from '../../Button/InformationButtonAccent/InformationButtonAccent';
 import PrimaryButton from '../../Button/Primary/PrimaryButton';
 import bp from '../../Theme/breakpoints';

@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import bp from '../../../Theme/breakpoints';
 import PrimaryButton from '../../../Button/Primary/PrimaryButton';
-import { useAuth0 } from '@auth0/auth0-react';
 import NavItem from '../NavItem/NavItem';
 
 const MenuNav = styled.nav`

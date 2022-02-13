@@ -1,14 +1,8 @@
 import NavItemMobile from '../NavItemMobile/NavItemMobile';
 import theme from '../../../Theme/theme';
 import styled from 'styled-components';
-import bp from '../../../Theme/breakpoints';
-import { SlideDown } from 'react-slidedown';
 import PrimaryButton from '../../../Button/Primary/PrimaryButton';
 import 'react-slidedown/lib/slidedown.css';
-
-const SSTimg = styled.img`
-	width: 30px;
-`;
 
 const StyledNav = styled.nav`
 	background: ${theme.color.background.secondary};

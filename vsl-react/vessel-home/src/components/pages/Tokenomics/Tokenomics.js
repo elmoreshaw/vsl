@@ -1,19 +1,9 @@
 import styled, { css } from 'styled-components';
 import theme from '../../Theme/theme';
-import ETF_big from '../../../assets/images/etf_big.png';
-import vault from '../../../assets/images/vault_render_big.png';
-import graph from '../../../assets/images/vsl_graph_both.png';
-import lock from '../../../assets/images/lock_cube.png';
-import scales from '../../../assets/images/scales_zoomed_cropped_4.png';
-import InformationButton from '../../Button/InformationButton/InformationButton';
-import InformationButtonAccent from '../../Button/InformationButtonAccent/InformationButtonAccent';
 import TokenomicsChart from '../../Charts/TokenomicsChart';
 import bp from '../../Theme/breakpoints';
 import Footer from '../../Navigation/Footer/Footer';
-import blueGlow from '../../../assets/images/BLUE_round.svg';
-import greenGlow from '../../../assets/images/GREEN_round.svg';
 import pinkGlow from '../../../assets/images/PINK_round.svg';
-import darkBlueGlow from '../../../assets/images/PURPLE_round.svg';
 import SSTarrow from '../../../assets/images/uiButtons/double-arrow-up.svg';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
@@ -43,15 +33,6 @@ const AboutSection = styled.section`
 	border-radius: 50px;
 	position: relative;
 	background-color: transparent;
-`;
-
-const ButtonContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-	padding-top: 20px;
-	position: relative;
 `;
 
 const SectionWrapper = styled.div`
@@ -88,17 +69,6 @@ const AboutImageParent = styled.div`
 		max-width: 400px;
 		align-items: center;
 		display: flex;
-	}
-`;
-
-const AboutImg = styled.img`
-	max-width: 60%;
-	margin-bottom: 24px;
-	@media ${bp.sm} {
-		max-width: 70%;
-	}
-	@media ${bp.xl} {
-		max-width: 80%;
 	}
 `;
 
@@ -141,64 +111,6 @@ const AboutTextWrapperContainer = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	@media ${bp.sm} {
-		align-items: flex-start;
-	}
-`;
-
-const HeroSectionHeader = styled.h1`
-	color: ${theme.color.text.primary};
-	margin-bottom: 16px;
-	text-align: flex-start;
-	max-width: 900px;
-	font-size: 46px;
-	@media ${bp.sm} {
-		text-align: left;
-		font-size: 56px;
-	}
-`;
-
-const HeroImg = styled.img`
-	max-width: 70%;
-	margin-bottom: 24px;
-	@media ${bp.sm} {
-		max-width: 90%;
-	}
-`;
-
-const HeroPara = styled.p`
-	color: ${theme.color.text.primary};
-	max-width: 900px;
-	text-align: flex-start;
-	font-size: 18px;
-	@media ${bp.sm} {
-		text-align: left;
-		font-size: 24px;
-	}
-`;
-
-const HeroWrapper = styled.div`
-	position: relative;
-	background-color: transparent;
-	max-width: 900px;
-	@media ${bp.sm} {
-		padding-top: 50px;
-		padding-bottom: 100px;
-		width: 100%;
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: space-between;
-		position: relative;
-	}
-`;
-
-const HeroTextWrapper = styled.div`
-	max-width: 900px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-	margin-right: 50px;
 	@media ${bp.sm} {
 		align-items: flex-start;
 	}
@@ -304,18 +216,6 @@ const BoxHeaderKey = styled.h1`
 	display: flex;
 	justify-content: center;
 	padding-bottom: 4px;
-`;
-
-const BoxIcon = styled.img`
-	width: 20px;
-	filter: invert(1);
-`;
-
-const BoxIconSpecial = styled.img`
-	width: 60px;
-	filter: invert(1);
-	display: flex;
-	margin-bottom: 10px;
 `;
 
 const ChartWrapper = styled.div`

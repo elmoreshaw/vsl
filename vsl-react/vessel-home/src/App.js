@@ -5,8 +5,6 @@ import Roadmap from './components/pages/Roadmap/Roadmap';
 import Tokenomics from './components/pages/Tokenomics/Tokenomics';
 import Documentation from './components/pages/Documentation/Documentation';
 import Layout from './components/Navigation/Layout/Layout';
-import { useAuth0 } from '@auth0/auth0-react';
-import useUserMetadata from './hooks/useUserMetadata';
 
 function App() {
 	const routes = (

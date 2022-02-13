@@ -1,8 +1,5 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
-import theme from '../Theme/theme';
-import bp from '../Theme/breakpoints';
-import styled, { css } from 'styled-components';
 
 const pieData = [
 	{
