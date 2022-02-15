@@ -1,4 +1,4 @@
-import Logo from '../../../assets/images/boat_logo.png';
+import Logo from '../../../assets/svgs/boat_logo.png';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './Menu/Menu';
@@ -38,8 +38,6 @@ const HeaderContentWrapper = styled.div`
 const LogoImg = styled.img`
 	padding: 2px;
 	width: 200px;
-	margin-bottom: -20px;
-	margin-left: -20px;
 `;
 
 const MobileMenuWrapper = styled.div`
