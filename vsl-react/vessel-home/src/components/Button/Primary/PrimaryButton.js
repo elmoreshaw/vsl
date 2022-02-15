@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../../Theme/theme';
 
 const StyledButton = styled.button`
-	background: linear-gradient(250deg, #376fbf 0%, #00bea8 100%);
+	background: linear-gradient(250deg, #428afa 0%, #00bea8 100%);
 	border-radius: 12px;
 	padding: 13px;
 	transition: all 0.2s ease;

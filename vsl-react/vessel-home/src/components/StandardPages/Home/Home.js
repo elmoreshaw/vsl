@@ -326,7 +326,7 @@ const HomePage = () => {
 										<HeroPara>The first synthetic deflationary DeFi mutual fund.</HeroPara>
 									</AnimationOnScroll>
 									<ButtonContainer>
-										<PrimaryButton>Connect Wallet</PrimaryButton>
+										<PrimaryButton>Launch dApp</PrimaryButton>
 									</ButtonContainer>
 								</HeroTextWrapper>
 							</HeroWrapper>
