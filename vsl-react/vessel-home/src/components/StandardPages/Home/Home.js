@@ -275,7 +275,7 @@ const BackgroundBlurRight = styled.img`
 const BackgroundBlurCenter = styled.img`
 	position: absolute;
 	z-index: -1;
-	opacity: 70%;
+	opacity: 80%;
 	right: 0;
 	min-width: 800px;
 	min-height: 600px;

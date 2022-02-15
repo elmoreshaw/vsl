@@ -115,6 +115,8 @@ const RoadmapPara = styled.div`
 	font-family: Arial;
 	padding: 30px 30px 60px 30px;
 	border: 4px solid ${props => roadmapColorPicker(props)};
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
 	border-radius: 20px;
 	margin-bottom: 30px;
 	margin-top: 30px;

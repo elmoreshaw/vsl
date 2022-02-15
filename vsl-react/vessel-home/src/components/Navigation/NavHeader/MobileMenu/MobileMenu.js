@@ -105,7 +105,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
 			</NavItemMobile>
 			<Divider />
 			<ButtonContainer>
-				<PrimaryButton>Connect Wallet</PrimaryButton>
+				<PrimaryButton>Launch dApp</PrimaryButton>
 			</ButtonContainer>
 		</StyledNav>
 	);
