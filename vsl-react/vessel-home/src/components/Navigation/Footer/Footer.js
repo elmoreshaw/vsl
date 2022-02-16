@@ -16,7 +16,7 @@ const StyledFooter = styled.footer`
 	position: relative;
 	align-content: center;
 	justify-content: center;
-	z-index: 9999;
+	z-index: 2;
 	background: rgba(17, 17, 17, 0.9);
 	backdrop-filter: blur(9px);
 	border-top: 1px solid rgba(255, 255, 255, 0.2);

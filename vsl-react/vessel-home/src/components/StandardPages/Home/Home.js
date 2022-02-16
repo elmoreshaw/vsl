@@ -300,6 +300,7 @@ const HomePage = () => {
 				style={{
 					'background-color': 'transparent',
 					'box-shadow': 'none',
+					zIndex: 9999,
 					transition: 'opacity 1s ease-in-out',
 					'&:active': {
 						visibility: 'visible',
