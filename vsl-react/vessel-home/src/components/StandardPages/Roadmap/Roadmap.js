@@ -9,6 +9,8 @@ import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import ScrollToTop from 'react-scroll-to-top';
 import { useEffect } from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const PageWrapper = styled.div`
 	padding: 0 28px 64px 28px;
@@ -50,30 +52,6 @@ const HeroSectionWrapper = styled.div`
 	background-color: transparent;
 `;
 
-const SectionWrapper = styled.div`
-	border-radius: 15px;
-	padding-top: 48px;
-	padding-left: 24px;
-	padding-right: 24px;
-	width: 80%;
-	display: flex;
-	/* fix for Firefox */
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	flex-direction: column;
-	background-color: transparent;
-	@media ${bp.xxs} {
-		flex-direction: column;
-	}
-	@media ${bp.xs} {
-		flex-direction: column;
-	}
-	@media ${bp.sm} {
-		flex-direction: row;
-	}
-`;
-
 const AboutSectionHeader = styled.h1`
 	max-width: 700px;
 	color: ${theme.color.text.primary};
@@ -111,14 +89,14 @@ const AboutPara = styled.p`
 
 const RoadmapPara = styled.div`
 	color: #fff;
-	width: 100%;
+	width: 40%;
 	font-family: Arial;
 	padding: 30px 30px 60px 30px;
 	border: 4px solid ${props => roadmapColorPicker(props)};
 	background: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(10px);
 	border-radius: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 100px;
 	margin-top: 30px;
 	margin-right: 30px;
 	margin-left: 30px;
@@ -132,18 +110,20 @@ const RoadmapPara = styled.div`
 	flex-direction: column;
 	@media ${bp.xs} {
 		height: 12%;
+		width: 80%;
 	}
 	@media ${bp.sm} {
-		height: 550px;
+		height: 540px;
+		width: 40%;
 	}
 	@media ${bp.md} {
-		height: 560px;
+		height: 540px;
 	}
 	@media ${bp.lg} {
-		height: 535px;
+		height: 430px;
 	}
 	@media ${bp.xl} {
-		height: 475px;
+		height: 430px;
 	}
 `;
 const RoadmapSubPara = styled.div`
@@ -172,8 +152,12 @@ const RoadmapSubPara = styled.div`
 const RoadmapTitle = styled.h1`
 	font-weight: bold;
 	color: ${props => roadmapColorPicker(props)};
-	font-size: 72px;
+	font-size: 42px;
 	font-family: 'IBMPlexMono-Light';
+	padding-bottom: 20px;
+	@media ${bp.sm} {
+		font-size: 42px;
+	}
 `;
 
 const RoadMapSubParaContainer = styled.div`
@@ -214,27 +198,6 @@ const SSTimg = styled.img`
 	width: 30px;
 `;
 
-const BackgroundBlurLeft = styled.img`
-	left: -30%;
-	opacity: 30%;
-	position: absolute;
-	z-index: -1;
-	min-width: 800px;
-	min-height: 600px;
-	margin-top: -100px;
-	object-fit: fill;
-	@media ${bp.sm} {
-		left: -5%;
-		max-width: 100%;
-		margin-top: -100px;
-	}
-	@media ${bp.xl} {
-		left: -1%;
-		max-width: 100%;
-		margin-top: -100px;
-	}
-`;
-
 const BackgroundBlurRight = styled.img`
 	position: absolute;
 	z-index: -1;
@@ -256,6 +219,70 @@ const BackgroundBlurRight = styled.img`
 	}
 `;
 
+const SectionWrapper = styled.div`
+	border-radius: 15px;
+	padding: 48px 24px 0 24px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	background-color: transparent;
+	@media ${bp.sm} {
+		flex-direction: row;
+	}
+`;
+
+const RoadmapDescription = styled.p`
+	color: ${theme.color.text.primary};
+	max-width: 600px;
+	text-align: left;
+	font-size: 18px;
+	margin-bottom: 60px;
+	@media ${bp.sm} {
+		text-align: left;
+		padding: 20px;
+		margin-bottom: 0px;
+	}
+`;
+
+const RoadmapDescTitle = styled.p`
+	font-weight: bold;
+`;
+
+const RoadmapDescPara = styled.p`
+	color: ${theme.color.text.secondary};
+	margin-bottom: 30px;
+	margin-left: 15px;
+`;
+
+const Divider = styled.hr`
+	border-left: 1px #111111;
+	height: 0px;
+	width: 90%;
+	margin-bottom: 30px;
+	opacity: 30%;
+	margin-top: -50px;
+	@media ${bp.sm} {
+		height: 400px;
+		width: 0px;
+	}
+`;
+
+const IndicatorListSelected = styled.li`
+	color: ${theme.color.text.primary};
+	padding: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid #111111;
+`;
+
+const IndicatorList = styled.li`
+	color: ${theme.color.text.secondary};
+	padding: 10px;
+	font-weight: bold;
+`;
+
 const roadmapColorPicker = col => {
 	return col.one ? '#51ECCD' : col.two ? '#54FFFC' : col.three ? '#57F0FE' : col.four ? '#56CFFE' : 'red';
 };
@@ -264,6 +291,15 @@ const RoadmapPage = () => {
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' });
 	}, []);
+
+	const indicatorStyles = {
+		width: '400px',
+		display: 'inline',
+		'flex-direction': 'row',
+		'align-content': 'center',
+		'justify-content': 'center',
+	};
+
 	return (
 		<>
 			<ScrollToTop
@@ -274,6 +310,7 @@ const RoadmapPage = () => {
 				style={{
 					'background-color': 'transparent',
 					'box-shadow': 'none',
+					zIndex: 9999,
 					transition: 'opacity 1s ease-in-out',
 					'&:active': {
 						visibility: 'visible',
@@ -293,7 +330,9 @@ const RoadmapPage = () => {
 									<AboutSectionHeader>Roadmap</AboutSectionHeader>
 									<AboutPara>
 										The Vessel Protocol aims to bring one of the most proven utilities on
-										traditional markets, mutual funds, onto the decentralized web.
+										traditional markets, mutual funds, onto the decentralized web. Our Roadmap marks
+										key milestones that we are aiming for in our constant development our the Vessel
+										Ecosystem.
 									</AboutPara>
 								</AboutTextWrapperContainer>
 							</AboutWrapperTextLeft>
@@ -303,7 +342,54 @@ const RoadmapPage = () => {
 
 				<BackgroundBlurRight src={blueGlow} alt="Green Glow" />
 				<AnimationOnScroll animateIn="animate__fadeIn" animateOnce="true">
-					<AboutSection>
+					<Carousel
+						showArrows={false}
+						showStatus={false}
+						swipeable={false}
+						animationHandler={'fade'}
+						renderIndicator={(onClickHandler, isSelected, index, label) => {
+							if (isSelected) {
+								return (
+									<IndicatorListSelected style={indicatorStyles}>
+										{' '}
+										{index === 0
+											? 'Q1 - 22'
+											: index === 1
+											? 'Q2 - 22'
+											: index === 2
+											? 'Q4 - 22'
+											: index === 3
+											? 'Q1 - 23'
+											: null}{' '}
+									</IndicatorListSelected>
+								);
+							}
+							return (
+								<IndicatorList
+									style={indicatorStyles}
+									onClick={onClickHandler}
+									value={index}
+									key={index}
+									role="button"
+									tabIndex={0}
+									title={`${label} ${index + 1}`}
+									aria-label={`${label} ${index + 1}`}
+									text={'test'}
+								>
+									{' '}
+									{index === 0
+										? 'Q1 - 22'
+										: index === 1
+										? 'Q2 - 22'
+										: index === 2
+										? 'Q4 - 22'
+										: index === 3
+										? 'Q1 - 23'
+										: null}
+								</IndicatorList>
+							);
+						}}
+					>
 						<SectionWrapper>
 							<RoadmapPara one>
 								<RoadmapTitle one>
@@ -311,47 +397,87 @@ const RoadmapPage = () => {
 								</RoadmapTitle>
 								<RoadMapSubParaContainer four>
 									<RoadmapSubPara one>
-										<span style={{ color: '#51ECCD' }}>vsl</span> whitepaper and smart contract
+										<span style={{ color: '#51ECCD' }}>vsl</span> Whitepaper and smart contract
 									</RoadmapSubPara>
-									<RoadmapSubPara one>developer revisions and audits</RoadmapSubPara>
+									<RoadmapSubPara one>Developer revisions and audits</RoadmapSubPara>
 									<RoadmapSubPara one>
 										<span style={{ color: '#51ECCD' }}>vsl</span>.finance + app.
 										<span style={{ color: '#01FFFE' }}>vsl.finance</span>
 									</RoadmapSubPara>
 								</RoadMapSubParaContainer>
 							</RoadmapPara>
+							<Divider />
+							<RoadmapDescription>
+								<RoadmapDescTitle>• VSL whitepaper and smart contract:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									write the vessel whitepaper and develop the smart contract that Vessel Protocol
+									operates within.
+								</RoadmapDescPara>
+								<RoadmapDescTitle>• Developer Revisions:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									Thorough internal testing and revisions of the logic and mathematics of smart
+									contract.
+								</RoadmapDescPara>
+								<RoadmapDescTitle>• Vsl.finance + app.vsl.finance:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									build the vsl.finance website and app.vsl.finance dApp for public access.
+								</RoadmapDescPara>
+							</RoadmapDescription>
+						</SectionWrapper>
+						<SectionWrapper>
 							<RoadmapPara two>
 								<RoadmapTitle two>
 									Q2 <span style={{ color: '#fff' }}>2022:</span>
 								</RoadmapTitle>
 								<RoadMapSubParaContainer four>
+									<RoadmapSubPara two>ICO, seed funding, private sales</RoadmapSubPara>
 									<RoadmapSubPara two>
-										ICO, seed funding, private sales -{' '}
-										<span style={{ color: '#51ECCD', fontFamily: 'IBMPlexMono-Light' }}>
-											$5,000,000
-										</span>{' '}
-										target
-									</RoadmapSubPara>
-									<RoadmapSubPara two>
-										third party audit of vsl smart contract and logic
+										Third party audit of vsl smart contract and logic
 									</RoadmapSubPara>
 								</RoadMapSubParaContainer>
 							</RoadmapPara>
+							<Divider />
+							<RoadmapDescription>
+								<RoadmapDescTitle>• ICO, seed funding, private sales:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									Through conducting ICO, seed funding and private sales, we intend to aim for raising
+									$5,000,000.
+								</RoadmapDescPara>
+								<RoadmapDescTitle>• Third party audit of VSL smart contract:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									Recieve security audit certificate for trust and authenticity.
+								</RoadmapDescPara>
+							</RoadmapDescription>
 						</SectionWrapper>
-						<BackgroundBlurLeft src={blueGlow} alt="Green Glow" />
 						<SectionWrapper>
 							<RoadmapPara three>
 								<RoadmapTitle three>
 									Q4 <span style={{ color: '#fff' }}>2022:</span>
 								</RoadmapTitle>
 								<RoadMapSubParaContainer four>
-									<RoadmapSubPara three>T1 exchange listings</RoadmapSubPara>
+									<RoadmapSubPara three>T1 Exchange listings</RoadmapSubPara>
 									<RoadmapSubPara three milestone>
-										V2: seigniorage shares peg
+										V2: Seigniorage shares peg
 									</RoadmapSubPara>
-									<RoadmapSubPara three>V2: custom asset class staking</RoadmapSubPara>
+									<RoadmapSubPara three>V2: Custom asset class staking</RoadmapSubPara>
 								</RoadMapSubParaContainer>
 							</RoadmapPara>
+							<Divider />
+							<RoadmapDescription>
+								<RoadmapDescTitle>• T1 Exchange listings:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									List the VSL token on popular and accessable exchanges for purchasing.
+								</RoadmapDescPara>
+								<RoadmapDescTitle>• V2: Seigniorage shares peg:</RoadmapDescTitle>
+								<RoadmapDescPara>Implement seigniorage into the Vessel Protocol.</RoadmapDescPara>
+								<RoadmapDescTitle>• V2: Custom asset class staking:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									Implement custom asset class staking for investors to be able to invest in their
+									asset class of choice.
+								</RoadmapDescPara>
+							</RoadmapDescription>
+						</SectionWrapper>
+						<SectionWrapper>
 							<RoadmapPara four>
 								<RoadmapTitle four>
 									Q1 <span style={{ color: '#fff' }}>2023:</span>
@@ -360,12 +486,23 @@ const RoadmapPage = () => {
 									<RoadmapSubPara four milestone>
 										V3: vsl.exchange launch
 									</RoadmapSubPara>
-									<RoadmapSubPara four>V3: governance of exchange policies</RoadmapSubPara>
+									<RoadmapSubPara four>V3: Governance of exchange policies</RoadmapSubPara>
 								</RoadMapSubParaContainer>
 							</RoadmapPara>
-							<BackgroundBlurRight src={blueGlow} alt="Green Glow" />
+							<Divider />
+							<RoadmapDescription>
+								<RoadmapDescTitle>• V3: vsl.exchange launch:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									Launch the VSL Exchange Platform for users to exchange tokens.
+								</RoadmapDescPara>
+								<RoadmapDescTitle>• V3: Governance of exchange policies:</RoadmapDescTitle>
+								<RoadmapDescPara>
+									Implement DAO Governance so that VSL investors are able to vote and have power on
+									the policies of the VSL Exchange Platform.
+								</RoadmapDescPara>
+							</RoadmapDescription>
 						</SectionWrapper>
-					</AboutSection>
+					</Carousel>
 				</AnimationOnScroll>
 			</PageWrapper>
 			<Footer />
