@@ -42,7 +42,7 @@ const AboutSection = styled.section`
 
 const HeroSectionWrapper = styled.div`
 	border-radius: 15px;
-	padding: 48px 24px 0 24px;
+	padding: 0px 24px 0 24px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -249,12 +249,20 @@ const RoadmapDescription = styled.p`
 
 const RoadmapDescTitle = styled.p`
 	font-weight: bold;
+	font-size: 14px;
+	@media ${bp.sm} {
+		font-size: 16px;
+	}
 `;
 
 const RoadmapDescPara = styled.p`
 	color: ${theme.color.text.secondary};
 	margin-bottom: 30px;
 	margin-left: 15px;
+	font-size: 14px;
+	@media ${bp.sm} {
+		font-size: 16px;
+	}
 `;
 
 const Divider = styled.hr`
@@ -262,6 +270,8 @@ const Divider = styled.hr`
 	height: 0px;
 	width: 90%;
 	margin-bottom: 30px;
+	margin-left: 20px;
+	margin-right: 20px;
 	opacity: 30%;
 	margin-top: -50px;
 	@media ${bp.sm} {
@@ -295,8 +305,9 @@ const RoadmapPage = () => {
 	const indicatorStyles = {
 		width: '400px',
 		display: 'inline',
+		position: 'relative',
 		'flex-direction': 'row',
-		'align-content': 'center',
+		'align-content': 'start',
 		'justify-content': 'center',
 	};
 
